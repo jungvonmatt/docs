@@ -1,0 +1,61 @@
+/*
+
+######################
+### ATOM: headline ###
+######################
+
+### SAMPLE MARKUP:
+
+<h2 class="a-hl-h1 a-hl-mono">
+    Text
+</h2>
+
+### INFO:
+
+This is a regular headline.
+It should be never overwritten in any other file.
+New modifiers can be added below.
+
+### MODIFIERS:
+
+h1 - h6
+    Self explaining.
+
+light
+    Changes the text color to light (default is dark).
+
+mono
+    Changes the font-family to a monospaced font.
+
+*/
+
+// TODO: use rem instead of px for font sizes
+
+.#{atom('hl')} {
+  font-family: Poppins;
+  font-weight: bold;
+  line-height: 1.2em;
+  color: color('black');
+
+    &-h1 {
+      font-size: 3em;
+    }
+
+    &-h2 {
+      font-size: 2.25em;
+    }
+
+    &-h3 {
+      font-size: 1.5em;
+    }
+
+    &-h4 {
+      font-size: 1em;
+    }
+
+    &-light {
+      color: color('white');
+    }
+
+    &-mono {}
+}
