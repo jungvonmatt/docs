@@ -1,0 +1,46 @@
+{% extends '/templates/default.j2' %}
+
+{% import '/source/j2/macros/atoms.j2' as atoms %}
+{% import '/source/j2/macros/molecules.j2' as molecules %}
+
+{% block components %}
+{# All styleguide pages will need amp-sidebar for the navigation so inject
+it and then get in other components that may have been referenced #}
+<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+{{ super () }}
+{% endblock %}
+
+{% block style %}
+{% if env.name == 'dev' %}
+<link href="{{ g.static('/static/static/css/styleguide.css').url|relative }}" rel="stylesheet">
+{% else %}
+<style amp-custom>
+{% include '/static/static/css/styleguide.css' %}
+</style>
+{% endif %}
+{% endblock %}
+
+{% block icons %}
+{% for ico in ['amp', 'code', 'edit', 'discussion', 'lego', 'lock', 'magazine', 'map', 'money', 'browser', 'search', 'stories', 'template', 'time', 'user', 'flask', 'internal', 'external', 'download', 'arrow-down-thick', 'arrow-down-thin', 'bookmark', 'basket'] %}
+{% include 'partials/icons/' + ico + '.svg' %}
+{% endfor %}
+{% endblock %}
+
+{% block main %}
+{% include 'partials/styleguide/sidebar.j2' %}
+{% block header %}
+<header class="styleguide__header">
+  <button class="styleguide__toggle" on="tap:sidebar.toggle">
+     {{ atoms.icon('amp', size=4) }}
+  </button>
+
+  <h1>{{ doc.title }}</h1>
+</header>
+{% endblock header %}
+
+{% block content %}
+<main class="styleguide__content">
+  {{ doc.html|render|safe }}
+</main>
+{% endblock content %}
+{% endblock main %}

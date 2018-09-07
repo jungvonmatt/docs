@@ -1,0 +1,19 @@
+---
+$view: /views/styleguide/component.j2
+$title: Teaser
+
+lgAccent: Category Accent Large
+smAccent: Category Accent Small
+link: '/styleguide/molecules/teaser.html'
+linkCopy: Code now
+---
+<div class="ad-o-container col-6-4">
+  <div class="ad-m-teaser ad-m-teaser-white">
+    {% call molecules.teaser(doc.smAccent, doc.lgAccent, lipsum(n=1, html=False)) %}
+      <a href={{ doc.link }} class="ad-m-lnk">
+				{{ atoms.icon('internal', size=3) }}
+				<span class="ad-a-txt ad-a-txt-3 ad-a-txt-strong ad-a-txt-blue-ribbon">{{ doc.linkCopy }}</span>
+      </a>
+    {% endcall %}
+  </div>
+</div>

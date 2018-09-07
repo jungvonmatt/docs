@@ -1,0 +1,58 @@
+/*
+
+###################
+### ATOM: image ###
+###################
+
+### SAMPLE MARKUP:
+
+<div class="ad-a-img ad-a-img-circle">
+	<amp-img src="images/sample.jpg" layout="fill" alt="The Alt Text"></amp-img>
+</div>
+
+### INFO:
+
+Some basic styling for images.
+If using images in stages, no modifiers should be applied.
+Image atoms are implemented by a macro.
+Give the image macro the parameter "parallax" to add the amp-parallax-fx to it.
+
+### MODIFIERS:
+
+circle
+  Sets a border-radius 50% to the image (make sure it is a sqaure).
+
+shadow-static
+  Adds a simple static drop-shadow to the image.
+
+shadow-animated
+  Adds the same shadow as the static one, but also moves up and down while scrolling.
+
+*/
+
+// TODO: make decissions about how to implement animated shadow modifier
+
+.#{atom('img')} {
+	position: relative;
+
+	&-circle {}
+
+	&-shadow-static {
+		@include box-shadow;
+	}
+
+	&-shadow-animated {}
+}
+
+.#{organism('container-image')} {
+	display: grid;
+	grid-template-rows: repeat(3, 75px);
+	grid-template-columns: repeat(3, 75px);
+
+	.#{atom('img')} {
+		&-shadow-static {
+			grid-column: 1 / 4;
+			grid-row: 1 / 4;
+		}
+	}
+}

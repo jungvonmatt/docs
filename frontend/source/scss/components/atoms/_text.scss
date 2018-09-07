@@ -1,0 +1,83 @@
+/*
+
+##################
+### ATOM: text ###
+##################
+
+### SAMPLE MARKUP:
+
+<p class="ad-a-txt ad-a-txt-p">
+  The Text
+</p>
+
+### INFO:
+
+Text atom could be used almost everywhere.
+It has multiple size modifiers (more could be added below).
+
+### MODIFIERS:
+
+sizes
+  Selector names of the sizes could be changed globally in variables.
+
+p
+  Paragraph style text.
+
+TODO: mono (inline, block)
+  Changes the font-family to a monospaced font as inline or block text.
+
+*/
+
+.#{atom('txt')} {
+	font-family: Noto Sans;
+	line-height: 1.6em;
+	font-weight: normal;
+	color: color('river-bed');
+	margin: 0;
+
+	&-#{map-get($sizes, xs)} {
+		font-size: 0.625em;
+	}
+
+	&-#{map-get($sizes, sm)} {
+		font-size: 0.75em;
+	}
+
+	&-#{map-get($sizes, md)} {
+		font-size: 0.875em;
+	}
+
+	&-#{map-get($sizes, lg)} {
+		font-size: 1em;
+	}
+
+	&-#{map-get($sizes, xl)} {}
+
+	&-p {}
+
+	&-mono-inline {}
+
+	&-mono-block {}
+
+	&-strong {
+		font-weight: bold;
+	}
+
+	&-black {
+		color: color('black');
+	}
+
+	&-blue-ribbon {
+		color: color('blue-ribbon');
+  }
+
+  &-light {
+    color: color('white');
+  }
+
+	&-teaser-sm {
+		opacity: 0.5;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+}
