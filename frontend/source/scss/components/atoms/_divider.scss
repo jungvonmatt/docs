@@ -23,13 +23,16 @@ desktop
 .#{atom('divider')} {
 	display: block;
 	width: 100%;
+
+	background-color: color('whisper');
 	height: 1px;
 	margin-bottom: 0.813em;
-	background-color: color('whisper2');
+
 
 	@media screen and (min-width: 768px) {
 		display: none;
 	}
+
 
 	&-desktop {
 		@media screen and (min-width: 768px) {
@@ -37,3 +40,4 @@ desktop
 		}
 	}
 }
+

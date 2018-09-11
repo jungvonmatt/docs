@@ -43,5 +43,18 @@ none
 			padding: 0.438em;
 			@include box-shadow;
 		}
-	}
+  }
+
+  &-underline-dark {
+    &:hover {
+      text-decoration: underline color('black');
+    }
+  }
+
+  &-underline-light {
+    &:hover {
+      text-decoration: underline color('white');
+    }
+  }
+
 }

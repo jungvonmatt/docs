@@ -1,0 +1,49 @@
+/*
+
+#############################
+### ORGANISM: header ###
+#############################
+
+*/
+
+.#{organism('header')} {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  &-background {
+    width: 100vw;
+    height: 50vh;
+    @include emerald-doger;
+  }
+
+  &-lnk-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 1280px;
+    margin: 0 auto;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  &-lnk {
+    margin: 0 20px;
+    white-space: nowrap;
+  }
+
+  &-main-nav {
+    background-color: color('white');
+  }
+
+    &-main-nav &-lnk-list {
+    }
+
+  &-sub-nav {
+    background-color: color('wild-sand');
+  }
+
+    &-sub-nav &-lnk-list {
+    }
+}
