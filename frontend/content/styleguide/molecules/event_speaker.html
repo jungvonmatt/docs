@@ -1,0 +1,18 @@
+---
+$view: /views/styleguide/component.j2
+$title: Event Speaker
+
+speakers:
+- name: Mohak Shroff
+  organization: Senior Vice President, Engineering – LinkedIn
+  image: "../../../static/img/placeholder.jpg"
+---
+{% for speaker in doc.speakers %}
+	<div class="ad-m-event-speaker col-4-4">
+		{{ atoms.image(['static', 'circle'], src=speaker.image, width="20", height="20") }}
+		<div class="ad-m-event-speaker-bio">
+			<span class="ad-a-hl ad-a-hl-h3">{{ speaker.name }}</span>
+			<span class="ad-a-txt ad-a-txt-2">{{ speaker.organization }}</span>
+		</div>
+	</div>
+{% endfor %}

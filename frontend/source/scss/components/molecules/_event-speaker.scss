@@ -1,0 +1,24 @@
+.#{molecule('event-speaker')} {
+	display: flex;
+	align-items: center;
+
+	.ad-a-img {
+		height: 100px;
+		width: 100px;
+		position: absolute;
+
+		@media screen and (min-width: 768px) {
+			height: 134px;
+			width: 134px;
+		}
+	}
+
+	&-bio {
+		padding-left: 110px;
+
+		@media screen and (min-width: 768px) {
+			padding-left: 150px;
+		}
+	}
+
+}
