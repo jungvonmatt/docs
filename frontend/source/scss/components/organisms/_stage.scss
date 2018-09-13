@@ -22,7 +22,11 @@
     margin-right: -30px;
     min-height: 33.33vh;
     color: color('white');
-    background: linear-gradient(45deg, color('emerald'), color('doger-blue'));
+    background: linear-gradient(35deg, #0077DA, #00DCC0);
+
+    &-bg-blue {
+      background: linear-gradient(45deg, color('emerald'), color('doger-blue'));
+    }
 
     &-bg-orange {
       background: linear-gradient(45deg, color('pizazz'), color('turbo'));

@@ -42,7 +42,24 @@
   {% block body %}
   <main id="content">
     {% block content %}
+    {% if page.content is empty %}
+    <section class="ad-o-stage">
+      <div class="ad-o-stage-container">
+        <div class="ad-o-stage-content">
+          <h1>{{ page.title }}</h1>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-m-tip-container ad-m-tip-read-on-container">
+      <div class="ad-m-tip ad-m-tip-read-on">
+        <h4>{{ "AMP_DEV.EMPTY_PAGE.HEADLINE"|t }}</h4>
+        <p>{{ "AMP_DEV.EMPTY_PAGE.HINT"|t('<a href="/styleguide">Styleguide</a>') }}</p>
+      </div>
+    </div>
+    {% else %}
     {{ page.content }}
+    {% endif %}
     {% endblock %}
   </main>
   {% endblock body %}
