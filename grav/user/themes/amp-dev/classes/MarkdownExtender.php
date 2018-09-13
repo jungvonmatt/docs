@@ -60,11 +60,19 @@ class MarkdownExtender {
       // and height of the image
       // TODO: Make this a lot more robust instead of just searching for
       // matching media inside the current page. See \Grav\Common\Helpers\Excerpts
+      // TODO: It is not needed to get the width and heigth if they are set
+      // with GET paramaters
       $currentPageMedia = Grav::instance()['page']->media();
-      $imageFileName = basename($Inline['element']['attributes']['src']);
+      $imageFileName = $Inline['element']['attributes']['src'];
+      // Strip possible GET paremeters
+      $imageFileName = strtok($imageFileName, '?');
+      $imageFileName = basename($imageFileName);
 
-      $Inline['element']['attributes']['width'] = $currentPageMedia->get($imageFileName)->get('width');
-      $Inline['element']['attributes']['height'] = $currentPageMedia->get($imageFileName)->get('height');
+      $image = $currentPageMedia->get($imageFileName);
+      if ($image) {
+        $Inline['element']['attributes']['width'] = $currentPageMedia->get($imageFileName)->get('width');
+        $Inline['element']['attributes']['height'] = $currentPageMedia->get($imageFileName)->get('height');
+      }
 
       return $Inline;
     };

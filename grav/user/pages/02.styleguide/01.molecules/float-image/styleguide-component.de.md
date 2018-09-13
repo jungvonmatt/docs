@@ -39,4 +39,11 @@ Der Shortcode `[raw][float-image][/raw]` sieht auf der Seite eingebunden dann so
 ![](amp-img-01.png)
 ![](amp-img-02.png)
 [/float-image]
+
+
+Die Bilder innerhalb eines `[raw][float-image][/raw]` Shortcodes können außerdem über GET-Parameter manipuliert werden, wie in der Grav CMS [Dokumentation](https://learn.getgrav.org/content/media) beschrieben. Zum Beispiel durch das Anhängen von `?gaussianBlur=5`
+[float-image]
+![](amp-img-01.png?gaussianBlur=5)
+![](amp-img-02.png?gaussianBlur=5)
+[/float-image]
 [/section]
