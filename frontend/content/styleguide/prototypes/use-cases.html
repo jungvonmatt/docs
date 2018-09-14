@@ -113,26 +113,31 @@ $title: Use Cases
         display: flex;
         justify-content: center;
         align-items: center;
+        display: none;
       }
 
       .use-case-item-stories {
         background: #FFE100;
         grid-row: span 4;
+        display: flex;
       }
 
       .use-case-item-ads {
         grid-row: span 1;
         background: #EF0000;
+        display: flex;
       }
 
       .use-case-item-websites {
         grid-row: span 3;
         background: #005AF0;
+        display: flex;
       }
 
       .use-case-item-email {
         grid-row: span 2;
         background: #00CD3C;
+        display: flex;
       }
 
       .large {
@@ -167,7 +172,7 @@ $title: Use Cases
 		<div class="stage-list-viewbox">
       <amp-selector layout="container" on="select:AMP.setState({stages:{currentStage: event.targetOption}})">
 		  	<ul class="stage-list stage-list-animate" [class]="stages.currentStage == 'default' ? 'stage-list stage-list-animate' : 'stage-list'">
-		  		<li option="0" class="stage-list-item websites" selected>websites</li>
+		  		<li option="0" class="stage-list-item websites">websites</li>
 		  		<li option="1" class="stage-list-item stories">stories</li>
 		  		<li option="2" class="stage-list-item ads">ads</li>
 		  		<li option="3" class="stage-list-item email">emails</li>
@@ -180,26 +185,26 @@ $title: Use Cases
 	  </div>
     </div>
     <ul class="ad-o-container">
-      <li class="use-case-item use-case-item-stories small">stories</li>
-      <li class="use-case-item use-case-item-email">email</li>
-      <li class="use-case-item use-case-item-ads">ads</li>
-      <li class="use-case-item use-case-item-websites">websites</li>
-      <li class="use-case-item use-case-item-stories">stories</li>
-      <li class="use-case-item use-case-item-email">email</li>
-      <li class="use-case-item use-case-item-ads large">ads</li>
-      <li class="use-case-item use-case-item-websites">websites</li>
-      <li class="use-case-item use-case-item-stories small">stories</li>
-      <li class="use-case-item use-case-item-email">email</li>
-      <li class="use-case-item use-case-item-ads">ads</li>
-      <li class="use-case-item use-case-item-websites">websites</li>
-      <li class="use-case-item use-case-item-stories">stories</li>
-      <li class="use-case-item use-case-item-email">email</li>
-      <li class="use-case-item use-case-item-ads">ads</li>
-      <li class="use-case-item use-case-item-websites">websites</li>
-      <li class="use-case-item use-case-item-stories">stories</li>
-      <li class="use-case-item use-case-item-email">email</li>
-      <li class="use-case-item use-case-item-ads large">ads</li>
-      <li class="use-case-item use-case-item-websites">websites</li>
+      <li [class]="stages.currentStage ==1  ? 'use-case-item use-case-item-stories small' : 'use-case-item'" class="use-case-item use-case-item-stories small">stories</li>
+      <li [class]="stages.currentStage ==3  ? 'use-case-item use-case-item-email' : 'use-case-item'" class="use-case-item use-case-item-email">email</li>
+      <li [class]="stages.currentStage ==2  ? 'use-case-item use-case-item-ads' : 'use-case-item'" class="use-case-item use-case-item-ads">ads</li>
+      <li [class]="stages.currentStage ==0  ? 'use-case-item use-case-item-websites' : 'use-case-item'" class="use-case-item use-case-item-websites">websites</li>
+      <li [class]="stages.currentStage ==1  ? 'use-case-item use-case-item-stories' : 'use-case-item'" class="use-case-item use-case-item-stories">stories</li>
+      <li [class]="stages.currentStage ==3  ? 'use-case-item use-case-item-email' : 'use-case-item'" class="use-case-item use-case-item-email">email</li>
+      <li [class]="stages.currentStage ==2  ? 'use-case-item use-case-item-ads large' : 'use-case-item'" class="use-case-item use-case-item-ads large">ads</li>
+      <li [class]="stages.currentStage ==0  ? 'use-case-item use-case-item-websites' : 'use-case-item'" class="use-case-item use-case-item-websites">websites</li>
+      <li [class]="stages.currentStage ==1  ? 'use-case-item use-case-item-stories small' : 'use-case-item'" class="use-case-item use-case-item-stories small">stories</li>
+      <li [class]="stages.currentStage ==3  ? 'use-case-item use-case-item-email' : 'use-case-item'" class="use-case-item use-case-item-email">email</li>
+      <li [class]="stages.currentStage ==2  ? 'use-case-item use-case-item-ads' : 'use-case-item'" class="use-case-item use-case-item-ads">ads</li>
+      <li [class]="stages.currentStage ==0  ? 'use-case-item use-case-item-websites' : 'use-case-item'" class="use-case-item use-case-item-websites">websites</li>
+      <li [class]="stages.currentStage ==1  ? 'use-case-item use-case-item-stories' : 'use-case-item'" class="use-case-item use-case-item-stories">stories</li>
+      <li [class]="stages.currentStage ==3  ? 'use-case-item use-case-item-email' : 'use-case-item'" class="use-case-item use-case-item-email">email</li>
+      <li [class]="stages.currentStage ==2  ? 'use-case-item use-case-item-ads' : 'use-case-item'" class="use-case-item use-case-item-ads">ads</li>
+      <li [class]="stages.currentStage ==0  ? 'use-case-item use-case-item-websites' : 'use-case-item'" class="use-case-item use-case-item-websites">websites</li>
+      <li [class]="stages.currentStage ==1  ? 'use-case-item use-case-item-stories' : 'use-case-item'" class="use-case-item use-case-item-stories">stories</li>
+      <li [class]="stages.currentStage ==3  ? 'use-case-item use-case-item-email' : 'use-case-item'" class="use-case-item use-case-item-email">email</li>
+      <li [class]="stages.currentStage ==2  ? 'use-case-item use-case-item-ads large' : 'use-case-item'" class="use-case-item use-case-item-ads large">ads</li>
+      <li [class]="stages.currentStage ==0  ? 'use-case-item use-case-item-websites' : 'use-case-item'" class="use-case-item use-case-item-websites">websites</li>
     </ul>
   </main>
 </body>
