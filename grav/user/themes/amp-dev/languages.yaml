@@ -1,0 +1,16 @@
+en:
+  AMP_DEV:
+    EMPTY_PAGE:
+      HEADLINE: Lonely, I am so lonely
+      HINT: This page still looks a bit empty. Maybe there are some components in our %s you might use to bring some live to this page?
+    STYLEGUIDE:
+      HOW_TO_USE: How to use
+      DEMO: Examples
+de:
+  AMP_DEV:
+    EMPTY_PAGE:
+      HEADLINE: So viel Platz für neue Ideen
+      HINT: Noch ganz schön leer hier. Vielleicht findest Du ein paar Komponenten im %s mit der du dieser Seite ein bisschen Leben einhauchen könntest?
+    STYLEGUIDE:
+      HOW_TO_USE: Anleitung
+      DEMO: Beispiele

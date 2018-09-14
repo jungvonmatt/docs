@@ -116,7 +116,11 @@ TODO: mono (inline, block)
 
 	&-blue-ribbon {
 		color: color('blue-ribbon');
-	}
+  }
+
+  &-light {
+    color: color('white');
+  }
 
 	&-silver {
 		color: color('silver');
