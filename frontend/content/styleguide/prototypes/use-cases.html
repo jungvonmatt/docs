@@ -10,6 +10,7 @@ $title: Use Cases
 
 		<script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
 
     <link rel="canonical" href="./regular-html-version.html">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400|Poppins:700" rel="stylesheet">
@@ -33,6 +34,78 @@ $title: Use Cases
         padding: 0;
       }
 
+      .stage-list {
+				display: flex;
+				flex-direction: column; {# set to display:flex for order of items, selected item is always at top of list #}
+				background-color: #ffffff;
+				padding: 0;
+				list-style: none;
+				margin: 0;
+				padding-left: 5px;
+				height: 100%;
+			}
+
+      .stage-list-viewbox {
+				height: 50px;
+        width: 200px;
+				overflow: hidden;
+				display: flex;
+        transition: height 0.5s ease;
+        border: 2px solid #000;
+			}
+
+      .stage-list-viewbox:hover {
+        height: 200px;
+        transition: height 0.5s ease;
+			}
+
+      .stage-list-viewbox:hover .ad-a-ico {
+        justify-content: flex-start;
+        padding-top: 10px;
+      }
+
+			.stage-list-viewbox:hover svg {
+				transform: rotate(180deg);
+				transition: transform 0.5s ease;
+			}
+
+      .stage-list-viewbox:hover .stage-list-item[selected] {
+				background-color: #CCCCCC;
+				transform: translateY(0%);
+				margin: 5px;
+			}
+
+      .stage-list-item {
+				font-family: Poppins;
+				font-size: 32px;
+				order: 2;
+				outline: #ffffff;
+			}
+
+
+			.stage-list-item:hover {
+				margin-left: 2px;
+			}
+
+			{# selcted list item #}
+
+			.stage-list-item[selected][option] {
+				order: 1;
+				outline:  1px solid #ffffff;
+			}
+
+			.stage-list-item[selected]:hover {
+				margin-left: 5px;
+			}
+
+      .ad-a-ico {
+				height: 100%;
+				width: 25px;
+				z-index: 10;
+				background: #fff;
+				padding: 10px 10px;
+			}
+
       .use-case-item {
         grid-row: span 2;
         grid-column: span 1;
@@ -42,22 +115,22 @@ $title: Use Cases
         align-items: center;
       }
 
-      .stories {
+      .use-case-item-stories {
         background: #FFE100;
         grid-row: span 4;
       }
 
-      .ads {
+      .use-case-item-ads {
         grid-row: span 1;
         background: #EF0000;
       }
 
-      .websites {
+      .use-case-item-websites {
         grid-row: span 3;
         background: #005AF0;
       }
 
-      .email {
+      .use-case-item-email {
         grid-row: span 2;
         background: #00CD3C;
       }
@@ -70,31 +143,63 @@ $title: Use Cases
         grid-row: span 1;
       }
 
+      .websites {
+				color: #005AF0;
+			}
+
+			.stories {
+				color: #FFE100;
+			}
+
+			.ads {
+				color: #EF0000;
+			}
+
+			.email {
+				color: #00CD3C;
+			}
+
     </style>
 <body>
   <main>
     <h2 class="headline">Use Cases Filter</h2>
+    <p> select an item from the dropdown to filer use cases</p>
+		<div class="stage-list-viewbox">
+      <amp-selector layout="container" on="select:AMP.setState({stages:{currentStage: event.targetOption}})">
+		  	<ul class="stage-list stage-list-animate" [class]="stages.currentStage == 'default' ? 'stage-list stage-list-animate' : 'stage-list'">
+		  		<li option="0" class="stage-list-item websites" selected>websites</li>
+		  		<li option="1" class="stage-list-item stories">stories</li>
+		  		<li option="2" class="stage-list-item ads">ads</li>
+		  		<li option="3" class="stage-list-item email">emails</li>
+		  	</ul>
+		  </amp-selector>
+      <div class="ad-a-ico">
+			<svg id="arrow-down-thin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+				<path d="M59.863 17.14l4.137 5.488-32 24.232-32-24.232 4.137-5.488 27.863 21.108z"></path>
+			</svg>
+	  </div>
+    </div>
     <ul class="ad-o-container">
-      <li class="use-case-item stories small">stories</li>
-      <li class="use-case-item email">email</li>
-      <li class="use-case-item ads">ads</li>
-      <li class="use-case-item websites">websites</li>
-      <li class="use-case-item stories">stories</li>
-      <li class="use-case-item email">email</li>
-      <li class="use-case-item ads large">ads</li>
-      <li class="use-case-item websites">websites</li>
-      <li class="use-case-item stories small">stories</li>
-      <li class="use-case-item email">email</li>
-      <li class="use-case-item ads">ads</li>
-      <li class="use-case-item websites">websites</li>
-      <li class="use-case-item stories">stories</li>
-      <li class="use-case-item email">email</li>
-      <li class="use-case-item ads">ads</li>
-      <li class="use-case-item websites">websites</li>
-      <li class="use-case-item stories">stories</li>
-      <li class="use-case-item email">email</li>
-      <li class="use-case-item ads large">ads</li>
-      <li class="use-case-item websites">websites</li>
+      <li class="use-case-item use-case-item-stories small">stories</li>
+      <li class="use-case-item use-case-item-email">email</li>
+      <li class="use-case-item use-case-item-ads">ads</li>
+      <li class="use-case-item use-case-item-websites">websites</li>
+      <li class="use-case-item use-case-item-stories">stories</li>
+      <li class="use-case-item use-case-item-email">email</li>
+      <li class="use-case-item use-case-item-ads large">ads</li>
+      <li class="use-case-item use-case-item-websites">websites</li>
+      <li class="use-case-item use-case-item-stories small">stories</li>
+      <li class="use-case-item use-case-item-email">email</li>
+      <li class="use-case-item use-case-item-ads">ads</li>
+      <li class="use-case-item use-case-item-websites">websites</li>
+      <li class="use-case-item use-case-item-stories">stories</li>
+      <li class="use-case-item use-case-item-email">email</li>
+      <li class="use-case-item use-case-item-ads">ads</li>
+      <li class="use-case-item use-case-item-websites">websites</li>
+      <li class="use-case-item use-case-item-stories">stories</li>
+      <li class="use-case-item use-case-item-email">email</li>
+      <li class="use-case-item use-case-item-ads large">ads</li>
+      <li class="use-case-item use-case-item-websites">websites</li>
     </ul>
   </main>
 </body>
