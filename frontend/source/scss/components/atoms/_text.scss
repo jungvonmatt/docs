@@ -1,0 +1,153 @@
+@import '../../extends';
+@import '../../functions';
+@import '../../mixins';
+@import '../../variables';
+
+/*
+
+##################
+### ATOM: text ###
+##################
+
+### SAMPLE MARKUP:
+
+<p class="ad-a-txt ad-a-txt-p">
+  The Text
+</p>
+
+### INFO:
+
+Text atom could be used almost everywhere.
+It has multiple size modifiers (more could be added below).
+
+### MODIFIERS:
+
+sizes
+  Selector names of the sizes could be changed globally in variables.
+
+p
+  Paragraph style text.
+
+TODO: mono (inline, block)
+  Changes the font-family to a monospaced font as inline or block text.
+
+*/
+
+@mixin txt {
+	font-family: 'Noto Sans';
+	line-height: 1.6em;
+	font-weight: normal;
+	color: color('river-bed');
+}
+
+@mixin txt-1 {
+	font-size: 1em;
+
+	@media screen and (min-width: 768px) {
+		font-size: 1.25em;
+	}
+}
+
+@mixin txt-2 {
+	font-size: 0.875em;
+
+	@media screen and (min-width: 768px) {
+		font-size: 1em;
+	}
+}
+
+@mixin txt-3 {
+	font-size: 0.75em;
+}
+
+@mixin txt-accent-1 {
+	font-size: 1em;
+}
+
+@mixin txt-accent-2 {
+	font-size: 0.875em;
+}
+
+@mixin txt-accent-3 {
+	font-size: 0.625em;
+}
+
+@mixin txt-font-accent {
+	font-family: 'Poppins', sans-serif;
+}
+
+@mixin txt-hl {
+	display: block;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+	line-height: 1.25em;
+}
+
+@mixin txt-p {
+	display: block;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+@mixin txt-mono-inline {
+	display: inline-block;
+	padding: 0 4px;
+	font-weight: bold;
+	font-family: monospace;
+	color: color('black');
+	background-color: #eee;
+}
+
+@mixin txt-mono-block {
+	display: block;
+	font-family: monospace;
+	background-color: color('whisper');
+}
+
+@mixin txt-strong {
+	font-weight: bold;
+}
+
+@mixin txt-center {
+	text-align: center;
+}
+
+@mixin txt-uppercase {
+	text-transform: uppercase;
+}
+
+@mixin txt-black {
+	color: color('black');
+}
+
+@mixin txt-blue-ribbon {
+	color: color('blue-ribbon');
+}
+
+@mixin txt-silver {
+	color: color('silver');
+}
+
+@mixin txt-gray-chateau {
+	color: color('gray-chateau');
+}
+
+@mixin txt-light {
+	color: color('white');
+}
+
+@mixin txt-stories {
+	color: color('ultramarine');
+}
+
+@mixin txt-ads {
+	color: color('hawkes-blue');
+}
+
+@mixin txt-email {
+	color: color('reef');
+}
+
+@mixin txt-overview {
+  color: color('mine-shaft');
+}
