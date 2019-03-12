@@ -1,6 +1,7 @@
 ---
 $title: Integrate your ad technologies into AMP
 $order: 3
+description: If you are an ad technology provider looking to integrate with AMP HTML, please see the guidelines ...
 formats:
   - ads
 ---

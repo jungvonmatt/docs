@@ -1,6 +1,7 @@
 ---
 $title: Support
 $order: 1
+description: 'If you are looking for help to get started using AMP on your site or you are having issues using AMP, consult these resources: * ampproject.org provides ...
 toc: false
 formats:
   - websites

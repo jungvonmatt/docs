@@ -1,8 +1,7 @@
 ---
 $title: Validate AMPHTML syntax
 $order: 3
-description: 'To ensure your ad renders correctly, you should validate your AMPHTML syntax.
-In your browser, open the AMP Validator, and ensure AMP4ADS is the selected HTML Format.'
+description: 'To ensure your ad renders correctly, you should validate your AMPHTML syntax. In your browser, open the AMP Validator, and ensure AMP4ADS is the selected HTML Format.'
 ---
 
 To ensure your ad renders correctly, you should validate your AMPHTML syntax.
