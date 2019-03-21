@@ -7,41 +7,31 @@
 
     <ul>
       <section class="ap-o-sidebar-section">
-        {% do doc.styles.addCssFile('css/components/organisms/sidebar.css') %}
+        {% do doc.styles.addCssFile('css/components/organisms/sidebar--.css') %}
         <div class="ap-o-sidebar">
           {% include '/views/partials/format-toggle.j2' %}
 
           <div class="nav">
-            {% macro nav_tree(root, iteration=1, depth=None) -%}
-              {% if not depth or iteration <= depth %}
-                <ul class="nav-list level-{{ iteration }}">
-                    {% set collections = root.collections() %}
-                    {% set documents = root.list_docs(locale=doc.locale)|list %}
-                    {% set items = (collections + documents)|sort(attribute='order') %}
+            {% macro nav_tree(root) -%}
+              <ul class="nav-list">
+                {% set collections = root.collections() %}
+                {% set documents = root.list_docs(locale=doc.locale)|list %}
+                {% set items = (collections + documents)|sort(attribute='order') %}
 
-                    {% for item in items %}
-
-                      {% if '<Collection' in item|pprint %}
-                        {% set collection = item %}
-                        <p>Coll: {{ collection.title }}</p>
-
-                        {{ nav_tree(collection, iteration=iteration+1, depth=depth) }}
-
-                      {% elif '<Document' in item|pprint %}
-                        {% set document = item %}
-                        <p>Doc: {{ document.title }}</p>
-
-
-                      {% endif %}
-                    {% endfor %}
-
-                </ul>
-              {% endif %}
+                {% for item in items %}
+                {% if '<Collection' in item|pprint %}
+                {% set collection = item %}
+                <li style="font-weight: bold;">Coll: {{ collection.title }}</li>
+                <li>{{ nav_tree(item) }}</li>
+                {% elif '<Document' in item|pprint %}
+                {% set document = item %}
+                <li>Doc: {{ document.title }}</li>
+                {% endif %}
+                {% endfor %}
+              </ul>
               {%- endmacro %}
 
-              {% set split_path = doc.collection.collection_path.split('/') %}
-              {% set current_path = '/'.join(split_path[:3]) %}
-              {{ nav_tree(root=g.collection(current_path)) }}
+              {{ nav_tree(root=g.collection('/content/amp-dev/documentation/guides-and-tutorials')) }}
           </div>
         </div>
       </section>
