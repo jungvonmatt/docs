@@ -7,31 +7,47 @@
 
     <ul>
       <section class="ap-o-sidebar-section">
-        {% do doc.styles.addCssFile('css/components/organisms/sidebar--.css') %}
+        {% do doc.styles.addCssFile('css/components/organisms/sidebar2.css') %}
+
         <div class="ap-o-sidebar">
           {% include '/views/partials/format-toggle.j2' %}
 
           <div class="nav">
-            {% macro nav_tree(root) -%}
-              <ul class="nav-list">
+            {% macro nav_tree(root, iteration=1) -%}
+              <ul class="nav-list level-{{ iteration }}">
                 {% set collections = root.collections() %}
                 {% set documents = root.list_docs(locale=doc.locale)|list %}
                 {% set items = (collections + documents)|sort(attribute='order') %}
 
                 {% for item in items %}
-                {% if '<Collection' in item|pprint %}
-                {% set collection = item %}
-                <li style="font-weight: bold;">Coll: {{ collection.title }}</li>
-                <li>{{ nav_tree(item) }}</li>
-                {% elif '<Document' in item|pprint %}
-                {% set document = item %}
-                <li>Doc: {{ document.title }}</li>
-                {% endif %}
+
+                  {% if '<Collection' in item|pprint %}
+                    {% set collection = item %}
+                    <amp-accordion class="nav-accordion">
+                      <section class="nav-accordion-section">
+                        <h5 class="nav-trigger">{{ collection.title }}</h5>
+                        <span>{{ nav_tree(item, iteration=iteration+1) }}</span>
+                      </section>
+                    </amp-accordion>
+
+                  {% elif '<Document' in item|pprint %}
+                    {% set document = item %}
+                      <li class="nav-item level-{{ iteration }}">
+                        <a class="nav-link" href="{{ document.url.path }}">
+                          {{ document.title }}
+                          {% if document.tutorial %}
+                          {% do doc.icons.useIcon('icons/tutorial.svg') %}
+                          <svg class="ap-a-ico nav-type-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#tutorial"></use></svg>
+                          {% endif %}
+                        </a>
+                      </li>
+                  {% endif %}
+
                 {% endfor %}
               </ul>
-              {%- endmacro %}
+            {%- endmacro %}
 
-              {{ nav_tree(root=g.collection('/content/amp-dev/documentation/guides-and-tutorials')) }}
+            {{ nav_tree(root=g.collection('/content/amp-dev/documentation/guides-and-tutorials')) }}
           </div>
         </div>
       </section>
