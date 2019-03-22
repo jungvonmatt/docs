@@ -14,7 +14,7 @@
 
           <div class="nav">
             {% macro nav_tree(root, iteration=1) -%}
-              <ul class="nav-list level-{{ iteration }}">
+              <amp-accordion class="nav-list level-{{ iteration }}">
                 {% set collections = root.collections() %}
                 {% set documents = root.list_docs(locale=doc.locale)|list %}
                 {% set items = (collections + documents)|sort(attribute='order') %}
@@ -23,28 +23,36 @@
 
                   {% if '<Collection' in item|pprint %}
                     {% set collection = item %}
-                    <amp-accordion class="nav-accordion">
-                      <section class="nav-accordion-section">
-                        <h5 class="nav-trigger">{{ collection.title }}</h5>
-                        <span>{{ nav_tree(item, iteration=iteration+1) }}</span>
-                      </section>
-                    </amp-accordion>
-
-                  {% elif '<Document' in item|pprint %}
+                    <section class="nav-item">
+                    {# TODO : check if amp-accordion expects headline elements as first section child #}
+                      <h4 class="nav-headline level-{{ iteration }}">
+                        <div class="nav-item-link level-{{ iteration }}">{{ collection.title }}</div>
+                        <div class="nav-icon">
+                          {% if iteration==1 %}
+                            {% do doc.icons.useIcon('icons/angle-down-solid.svg') %}
+                            <svg class="ap-a-ico"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#angle-down-solid"></use></svg>
+                          {% else %}
+                            {% do doc.icons.useIcon('icons/angle-down-light.svg') %}
+                            <svg class="ap-a-ico light"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#angle-down-light"></use></svg>
+                          {% endif %}
+                        </div>
+                      </h4>
+                      {{ nav_tree(item, iteration=iteration+1) }}
+                    </section>
+                    {% elif '<Document' in item|pprint %}
                     {% set document = item %}
-                      <li class="nav-item level-{{ iteration }}">
+                    <section class="nav-item level-{{ iteration }}">
+                      <h4 class="nav-item-link">
                         <a class="nav-link" href="{{ document.url.path }}">
                           {{ document.title }}
-                          {% if document.tutorial %}
-                          {% do doc.icons.useIcon('icons/tutorial.svg') %}
-                          <svg class="ap-a-ico nav-type-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#tutorial"></use></svg>
-                          {% endif %}
                         </a>
-                      </li>
+                      </h4>
+                      <h4></h4>
+                    </section>
                   {% endif %}
 
                 {% endfor %}
-              </ul>
+              </amp-accordion>
             {%- endmacro %}
 
             {{ nav_tree(root=g.collection('/content/amp-dev/documentation/guides-and-tutorials')) }}
