@@ -7,7 +7,7 @@
 @import 'components/atoms/_text.scss';
 
 @mixin sidebar {
-  
+
 
 
   @media (min-width: 768px) {
@@ -33,9 +33,9 @@
   margin: 15px 0 0;
   padding-bottom: 15px;
 
-  
 
-  
+
+
 }
 
 @mixin sidebar-nav-list {
@@ -78,8 +78,6 @@
   padding: 0;
   margin: 0;
   color: rgba(color('black'), 0.75);
-  border: none;
-  background-color: transparent;
 }
 
 @mixin sidebar-nav-link-lastword {
