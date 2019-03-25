@@ -70,7 +70,7 @@ nav[toolbar] {
       background-color: transparent;
       border: none;
       outline: none;
-      //
+
       .i-amphtml-accordion-header {
         cursor: pointer;
         background-color: transparent;
@@ -78,80 +78,88 @@ nav[toolbar] {
         border: none;
       }
 
-      &-link {
-        // margin-left: 20px;
-      }
+      &-level-1 {
+        @include sidebar-nav-item-level-1;
 
-      .level-1 {
-        // @include sidebar-nav-item-level-1;
-        // background-color: red;
-
-        .nav-item-link  {
+        .nav-item-link-level-1  {
           @include sidebar-nav-link-level-1;
-          // background-color: red;
         }
-
-        // .nav-trigger,
-        // .nav-icon {
-        //   @include sidebar-nav-trigger-level-1;
-        // }
-        //
-        // .nav-icon .#{atom('ico')} {
-        //   @include sidebar-nav-icon-level-1;
-        // }
-
+        &[expanded] {
+          // TODO: @include sidebar-nav-link-active;
+          // .nav-item-link-level-2 {
+          //   @include sidebar-nav-link-active;
+          // }
+          .nav-icon-level-1 .#{atom('ico')} {
+            @include sidebar-nav-trigger-state;
+          }
+        }
       }
 
-      .level-2 {
-        .nav-item-link {
+      &-level-2 {
+        .nav-item-link-level-2 {
           @include sidebar-nav-link-level-2;
         }
+        &[expanded] {
+          // TODO: @include sidebar-nav-link-active;
+          // .nav-item-link-level-2 {
+          //   @include sidebar-nav-link-active;
+          // }
+          @include sidebar-nav-link-active;
+          .nav-icon-level-2 .#{atom('ico')} {
+            @include sidebar-nav-trigger-state;
+          }
+        }
       }
 
-      .level-3 {
-        .nav-item-link {
+      &-level-3 {
+        margin-left: 24px;
+        .nav-item-link-level-3 {
           @include sidebar-nav-link-level-3;
         }
       }
 
       &.active > .nav-link {
-        // @include sidebar-nav-link-active;
-      }
-
-      &:hover > .nav-link {
-        @include sidebar-nav-link-hover;
+        // TODO: @include sidebar-nav-link-active;
+        // .nav-item-link-level-2 {
+        //   @include sidebar-nav-link-active;
+        // }
       }
     }
 
     &-item-tutorial-divider {
-      // @include sidebar-nav-item-tutorial-divider;
+      @include sidebar-nav-item-tutorial-divider;
     }
 
-    &-link {
+    &-item-link {
       @include sidebar-nav-link;
+
+      &:hover {
+        @include sidebar-nav-link-hover;
+      }
     }
 
-    &-link-lastword {
-      // @include sidebar-nav-link-lastword;
+    &-icon .#{atom('ico')} {
+      @include sidebar-nav-icon;
     }
 
-    &-icon {
-      position: absolute;
-      top: 12px;
-      transform: rotate(-90deg);
+    &-icon-level-1 .#{atom('ico')} {
+      @include sidebar-nav-icon-level-1;
     }
 
+    &-icon-level-2 .#{atom('ico')} {
+      @include sidebar-nav-icon-level-2;
+    }
 
     &-trigger {
-      @include sidebar-nav-trigger-state;
+      outline: none;
+      margin: 0;
     }
-
 
     &-type-icon {
-      // @include sidebar-type-icon;
+      @include sidebar-type-icon;
     }
 
-    span.nav-link + .nav-trigger {
+    span.nav-item-link + .nav-trigger {
       width: calc(100% + 15px);
     }
   }

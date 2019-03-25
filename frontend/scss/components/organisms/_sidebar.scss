@@ -32,10 +32,6 @@
 @mixin sidebar-nav {
   margin: 15px 0 0;
   padding-bottom: 15px;
-
-
-
-
 }
 
 @mixin sidebar-nav-list {
@@ -103,6 +99,7 @@
 
 @mixin sidebar-nav-link-level-3 {
   padding: 7px 25px 8px 20px;
+  @include txt;
   @include txt-3;
 }
 
@@ -133,25 +130,11 @@
 }
 
 @mixin sidebar-nav-trigger-state {
-  // opacity: 0;
-  // z-index: 1;
-  //
-  // &[expanded] {
-  //   & ~ ul {
-  //     display: block;
-  //   }
-  //
-  //   & + .nav-icon .#{atom('ico')} {
-  //     transform: rotate(0);
-  //   }
-  // }
+  transform: rotate(0);
 }
 
 @mixin sidebar-nav-icon {
   position: absolute;
-  top: 6px;
-  width: 12px;
-  height: 12px;
   transform: rotate(-90deg);
 }
 
@@ -164,11 +147,13 @@
 }
 
 @mixin sidebar-nav-icon-level-1 {
-  margin-top: 16px;
+  top: 16px;
+  width: 12px;
+  height: 12px;
 }
 
 @mixin sidebar-nav-icon-level-2 {
+  top: 12px;
   width: 10px;
   height: 10px;
-  margin-top: 10px;
 }

@@ -14,20 +14,46 @@
 
           <div class="nav">
             {% macro nav_tree(root, iteration=1) -%}
-              <amp-accordion class="nav-list level-{{ iteration }}">
+              <amp-accordion id="{{ root.title|slug }}" class="nav-list level-{{ iteration }}">
                 {% set collections = root.collections() %}
                 {% set documents = root.list_docs(locale=doc.locale)|list %}
                 {% set items = (collections + documents)|sort(attribute='order') %}
 
                 {% for item in items %}
 
+                  {% if loop.previtem and item.tutorial and not loop.previtem.tutorial %}
+                    <section>
+                      <header>
+                        <div class="nav-item-tutorial-divider"></div>
+                      </header>
+                      <span></span>
+                    </section>
+                  {% endif %}
+
+                  {# Check if the item is a) collection ... #}
                   {% if '<Collection' in item|pprint %}
                     {% set collection = item %}
-                    <section class="nav-item">
-                    {# TODO : check if amp-accordion expects headline elements as first section child #}
-                      <h4 class="nav-headline level-{{ iteration }}">
-                        <div class="nav-item-link level-{{ iteration }}">{{ collection.title }}</div>
-                        <div class="nav-icon">
+                    <section class="nav-item nav-item-level-{{ iteration }}">
+                      <header class="nav-trigger">
+                        <div class="nav-item-link nav-item-link-level-{{ iteration }}">
+
+                          {# Get translated collection title #}
+                          {% set collection_title = collection.tagged_fields.get('$title@' + doc.locale.language, collection.title) %}
+                          {% if collection.tutorial %}
+                            {% set tutorial_title = collection_title.split(' ') %}
+                            {% set tutorial_first_part = ' '.join(tutorial_title[0:-1]) %}
+                            {% set tutorial_last_word = tutorial_title[-1] %}
+
+                            {% do doc.icons.useIcon('icons/tutorial.svg') %}
+                            <span>{{ tutorial_first_part }}</span>
+                            <span class="nav-link-lastword">{{ tutorial_last_word }}<svg class="ap-a-ico nav-type-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#tutorial"></use></svg></span>
+
+                          {% else %}
+                            <span>{{ collection_title }}</span>
+                          {% endif %}
+                        </div>
+
+                        <div class="nav-icon nav-icon-level-{{ iteration }}">
                           {% if iteration==1 %}
                             {% do doc.icons.useIcon('icons/angle-down-solid.svg') %}
                             <svg class="ap-a-ico"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#angle-down-solid"></use></svg>
@@ -36,18 +62,20 @@
                             <svg class="ap-a-ico light"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#angle-down-light"></use></svg>
                           {% endif %}
                         </div>
-                      </h4>
+                      </header>
                       {{ nav_tree(item, iteration=iteration+1) }}
                     </section>
+
+                    {# Check if the item is b) document #}
                     {% elif '<Document' in item|pprint %}
                     {% set document = item %}
-                    <section class="nav-item level-{{ iteration }}">
-                      <h4 class="nav-item-link">
-                        <a class="nav-link" href="{{ document.url.path }}">
+                    <section class="nav-item nav-item-level-{{ iteration }}">
+                      <header class="nav-trigger">
+                        <a class="nav-item-link nav-item-link-level-{{ iteration }}" href="{{ document.url.path }}">
                           {{ document.title }}
                         </a>
-                      </h4>
-                      <h4></h4>
+                      </header>
+                      <span></span>
                     </section>
                   {% endif %}
 
