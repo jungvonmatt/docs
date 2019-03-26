@@ -126,7 +126,10 @@ nav[toolbar] {
       }
     }
 
-    &-item-tutorial-divider {
+    &-item-tutorial-divider::before {
+      content: "";
+      width: 100%;
+      position: absolute;
       @include sidebar-nav-item-tutorial-divider;
     }
 
@@ -165,6 +168,6 @@ nav[toolbar] {
   }
 
   &-section {
-    max-width: 100%;
+    width: 100%;
   }
 }
