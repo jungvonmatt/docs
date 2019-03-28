@@ -8,16 +8,15 @@
 
 @mixin sidebar {
 
-
-
   @media (min-width: 768px) {
     position: -webkit-sticky;
     position: sticky;
     z-index: 1;
     top: 118px;
     left: auto;
-    padding-bottom: 0;
     width: auto;
+    min-height: 400px;
+    padding-bottom: 0;
     margin-right: 0;
     margin-left: -10px;
     background: none;
