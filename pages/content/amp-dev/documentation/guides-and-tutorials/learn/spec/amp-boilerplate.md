@@ -1,6 +1,7 @@
 ---
 $title: AMP Boilerplate Code
 $order: 3
+$categories: "introduction"
 toc: false
 formats:
   - websites

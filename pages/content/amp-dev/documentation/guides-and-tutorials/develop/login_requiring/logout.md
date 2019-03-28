@@ -1,6 +1,7 @@
 ---
 $title: Logout
 $order: 3
+$categories: "user-consent"
 description: 'Similar to the login button, the presence of the logout button is conditionally dependent on the state of the amp-access component ...'
 ---
 

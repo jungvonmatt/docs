@@ -1,6 +1,7 @@
 ---
 $title: Building a regular HTML page
 $order: 1
+$categories: "introduction"
 description: 'In the project directory, you will find a file named article.html. This is the news article that we are creating an AMP-equivalent page for ...'
 ---
 

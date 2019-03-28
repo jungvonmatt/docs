@@ -1,6 +1,7 @@
 ---
 $title: Setting up
 $order: 1
+$categories: "introduction"
 description: 'Set up your development environment: Step 1. Download the code.
 Download the sample code for the tutorial either as a ZIP file or via git ...'
 author: bpaduch

@@ -1,6 +1,7 @@
 ---
 $title: Validate AMP Emails
 $order: 1
+$categories: "user-consent"
 author: CrystalOnScript
 formats:
   - email

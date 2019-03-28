@@ -1,6 +1,7 @@
 ---
 $title: Add a comment
 $order: 2
+$categories: "social"
 description: 'At this point, the user can add a comment using the amp-form, library. Notice how the presence of the form is conditional, depending on the state of the amp-access component ...'
 ---
 

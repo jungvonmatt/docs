@@ -1,6 +1,7 @@
 ---
 $title: Create your first AMP Email
 $order: 0
+$categories: "user-consent"
 tutorial: true
 formats:
   - email

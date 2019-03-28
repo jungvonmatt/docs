@@ -1,6 +1,7 @@
 ---
 $title: Responsive images with srcset, sizes & heights
 $order: 4
+$categories: "interactivity-dynamic-content"
 description: 'Use the srcset attribute to control an element’s assets based on varying media expressions. In particular, use it for all amp-img tags to specify which ...'
 formats:
   - websites

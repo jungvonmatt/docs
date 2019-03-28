@@ -2,6 +2,7 @@
 $title: AMP HTML Specification
 toc: false
 $order: 3
+$categories: "introduction"
 formats:
   - websites
 ---

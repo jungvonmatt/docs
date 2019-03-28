@@ -1,6 +1,7 @@
 ---
 $title: CORS in AMP
 $order: 12
+$categories: "introduction"
 formats:
   - websites
   - email

@@ -1,6 +1,7 @@
 ---
 $title: Manage non-authenticated user state with AMP
 $order: 2
+$categories: "introduction"
 toc: false
 formats:
   - websites

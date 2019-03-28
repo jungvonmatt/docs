@@ -1,6 +1,7 @@
 ---
 $title: Include third-party content
 $order: 9
+$categories: "social"
 description: 'Learn how to include third-party components in your pages ...'
 formats:
     - websites

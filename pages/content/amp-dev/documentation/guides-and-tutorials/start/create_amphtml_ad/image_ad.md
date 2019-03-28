@@ -1,6 +1,7 @@
 ---
 $title: Create the image ad
 $order: 1
+$categories: "interactivity-dynamic-content"
 description: "Our ad is a simple image with a hyperlink to the advertised site (a shameless plug for ampproject.org).  We'll display the image using the amp-img tag. Here's the code: ..."
 ---
 

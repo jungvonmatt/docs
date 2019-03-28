@@ -1,6 +1,7 @@
 ---
 $title: AMP for Ads specification
 $order: 3
+$categories: "advertising-analytics"
 formats:
   - ads
 ---

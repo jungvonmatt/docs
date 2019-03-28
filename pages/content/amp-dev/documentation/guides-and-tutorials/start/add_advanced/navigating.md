@@ -1,6 +1,7 @@
 ---
 $title: Navigating your site
 $order: 5
+$categories: "style-layout"
 description: Most mobile websites include a site navigation menu. These menus can take many different forms. In this tutorial, we'll try out the following examples for ...
 ---
 

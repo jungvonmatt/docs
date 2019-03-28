@@ -1,6 +1,7 @@
 ---
 $title: Create the shell for the ad
 $order: 0
+$categories: "introduction"
 description: 'Using your favorite text editor, create an HTML file named my-amphtml-ad.html. Copy the following HTML markup into that file: ...'
 ---
 

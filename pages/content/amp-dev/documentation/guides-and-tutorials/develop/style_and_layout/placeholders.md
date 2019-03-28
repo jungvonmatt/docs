@@ -1,6 +1,7 @@
 ---
 $title: Placeholders & fallbacks
 $order: 3
+$categories: "interactivity-dynamic-content"
 descriptions: In the spirit of perceived performance and progressive enhancement, it's best practise in AMP to provide placeholders and fallbacks wherever possible.
 formats:
   - websites

@@ -1,6 +1,7 @@
 ---
 $title: Login
 $order: 1
+$categories: "user-consent"
 description: 'The first time you land on the page, you can see 2 comments and a login button. If you look for the login button in the code, you will find ...'
 ---
 

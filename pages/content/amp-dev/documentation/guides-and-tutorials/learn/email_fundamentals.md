@@ -1,6 +1,7 @@
 ---
 $title: AMP for Email Fundamentals 
 $order: 1
+$categories: "user-consent"
 author: CrystalOnScript
 formats:
   - email

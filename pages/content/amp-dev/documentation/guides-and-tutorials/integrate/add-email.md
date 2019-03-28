@@ -1,6 +1,7 @@
 ---
 $title: Add AMP to existing emails
 $order: 1
+$categories: "user-consent"
 author: CrystalOnScript
 formats:
   - email

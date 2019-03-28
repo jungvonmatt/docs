@@ -1,6 +1,7 @@
 ---
 $title: Ads vendors
 $order: 1
+$categories: "advertising-analytics"
 formats:
   - websites
 ---

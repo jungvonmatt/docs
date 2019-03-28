@@ -1,6 +1,7 @@
 ---
 $title: Reviewing the starter code
 $order: 1
+$categories: "introduction"
 description: "Before we start adding code, let's review the sample article.amp.html page, which should be as follows: ..."
 ---
 

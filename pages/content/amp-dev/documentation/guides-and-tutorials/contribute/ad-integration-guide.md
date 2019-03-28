@@ -1,6 +1,7 @@
 ---
 $title: Integrate your ad technologies into AMP
 $order: 3
+$categories: "introduction"
 formats:
   - ads
 ---

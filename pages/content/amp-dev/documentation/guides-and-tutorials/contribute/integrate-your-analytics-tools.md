@@ -1,6 +1,7 @@
 ---
 $title: Integrate your analytics tool with AMP
 $order: 1
+$categories: "advertising-analytics"
 formats:
   - websites
   - stories

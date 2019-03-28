@@ -1,6 +1,7 @@
 ---
 $title: Improving the interactivity
 $order: 2
+$categories: "interactivity-dynamic-content"
 description: 'The starter code provides a pretty bare user experience. There are a couple ways we can improve it\: - Add an indicator that displays the ...'
 ---
 

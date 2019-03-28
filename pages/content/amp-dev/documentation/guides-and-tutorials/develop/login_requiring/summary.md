@@ -1,6 +1,7 @@
 ---
 $title: Summary
 $order: 4
+$categories: "user-consent"
 description: 'In this tutorial, we explored how to combine amp-access and amp-form to create a comment section that requires a login.'
 ---
 

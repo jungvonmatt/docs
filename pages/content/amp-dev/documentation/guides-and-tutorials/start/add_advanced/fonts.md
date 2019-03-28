@@ -1,6 +1,7 @@
 ---
 $title: Adding fonts
 $order: 6
+$categories: "interactivity-dynamic-content"
 description: 'You can embed custom fonts into your AMP page in two ways: 1. Through a <link> tag: for white-listed font providers only. 2. By using ...'
 ---
 

@@ -1,6 +1,7 @@
 ---
 $title: Congratulations!
 $order: 7
+$categories: "interactivity-dynamic-content"
 description: 'You’ve finished the "Add advanced AMP features" tutorial and successfully explored many key advanced components of AMP!'
 ---
 

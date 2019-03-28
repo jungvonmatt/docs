@@ -1,6 +1,7 @@
 ---
 $title: Debug AMP Cache issues
 $order: 8
+$categories: "introduction"
 toc: false
 formats:
   - websites

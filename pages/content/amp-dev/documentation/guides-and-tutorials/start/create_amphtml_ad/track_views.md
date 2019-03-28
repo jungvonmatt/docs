@@ -1,6 +1,7 @@
 ---
 $title: Track ad views
 $order: 2
+$categories: "introduction"
 description: Within AMPHTML ads, you can track metrics by using the amp-pixel or amp-analytics components. In our basic sample, we'll add the ability to track pageviews ...
 ---
 

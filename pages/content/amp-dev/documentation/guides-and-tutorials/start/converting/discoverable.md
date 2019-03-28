@@ -1,6 +1,7 @@
 ---
 $title: Making your page discoverable
 $order: 3
+$categories: "introduction"
 description: 'It’s necessary to set up this bidirectional linking so that search engines understand the relationship between our regular HTML canonical document and our AMP document.'
 ---
 
