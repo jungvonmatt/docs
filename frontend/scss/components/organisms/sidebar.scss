@@ -23,7 +23,7 @@ nav[toolbar] {
     overflow: auto;
     max-height: calc(100vh - 168px);
   }
-  
+
   &::-webkit-scrollbar {
     width: 2px;
   }
@@ -67,94 +67,110 @@ nav[toolbar] {
 
     &-item {
       @include sidebar-nav-item;
+      background-color: transparent;
+      border: none;
+      outline: none;
 
-      &.level-1 {
+      .i-amphtml-accordion-header {
+        cursor: pointer;
+        background-color: transparent;
+        padding: 0;
+        border: none;
+      }
+
+      &-level-1 {
         @include sidebar-nav-item-level-1;
 
-        .nav-link {
+        .nav-item-link-level-1  {
           @include sidebar-nav-link-level-1;
         }
-
-        .nav-trigger,
-        .nav-icon {
-          @include sidebar-nav-trigger-level-1;
+        &[expanded] {
+          .nav-icon-level-1 .#{atom('ico')} {
+            @include sidebar-nav-trigger-state;
+          }
         }
-
-        .nav-icon .#{atom('ico')} {
-          @include sidebar-nav-icon-level-1;
+        &.active {
+          .nav-item-link-level-1 {
+            @include sidebar-nav-link-active;
+          }
         }
       }
 
-      &.level-2 {
-        .nav-link {
+      &-level-2 {
+        .nav-item-link-level-2 {
           @include sidebar-nav-link-level-2;
         }
-
-        .nav-trigger,
-        .nav-icon {
-          @include sidebar-nav-trigger-level-2;
+        &[expanded] {
+          @include sidebar-nav-link-active;
+          .nav-icon-level-2 .#{atom('ico')} {
+            @include sidebar-nav-trigger-state;
+          }
         }
-
-        .nav-icon .#{atom('ico')} {
-          @include sidebar-nav-icon-level-2;
+        &.active {
+          .nav-item-link-level-2 {
+            @include sidebar-nav-link-active;
+          }
         }
       }
 
-      &.level-3 {
+      &-level-3 {
         margin-left: 24px;
-        .nav-link {
+        .nav-item-link-level-3 {
           @include sidebar-nav-link-level-3;
         }
         &.active {
+          .nav-item-link-level-3 {
+            @include sidebar-nav-link-active;
+          }
           background: rgba(51,61,71,0.1);
           border-radius: 4px;
+
         }
-      }
-
-      &.active > .nav-link {
-        @include sidebar-nav-link-active;
-      }
-
-      &:hover > .nav-link {
-        @include sidebar-nav-link-hover;
       }
     }
 
-    &-item-tutorial-divider {
+    &-item-tutorial-divider::before {
+      content: "";
+      width: 100%;
+      position: absolute;
       @include sidebar-nav-item-tutorial-divider;
     }
 
-    &-link {
+    &-item-link {
       @include sidebar-nav-link;
-    }
 
-    &-link-lastword {
-      @include sidebar-nav-link-lastword;
-    }
-
-    &-icon,
-    &-trigger {
-      @include sidebar-nav-trigger;
-    }
-
-    &-trigger {
-      @include sidebar-nav-trigger-state;
+      &:hover {
+        @include sidebar-nav-link-hover;
+      }
     }
 
     &-icon .#{atom('ico')} {
       @include sidebar-nav-icon;
     }
 
+    &-icon-level-1 .#{atom('ico')} {
+      @include sidebar-nav-icon-level-1;
+    }
+
+    &-icon-level-2 .#{atom('ico')} {
+      @include sidebar-nav-icon-level-2;
+    }
+
+    &-trigger {
+      outline: none;
+      margin: 0;
+    }
+
     &-type-icon {
       @include sidebar-type-icon;
     }
 
-    span.nav-link + .nav-trigger {
+    span.nav-item-link + .nav-trigger {
       width: calc(100% + 15px);
     }
   }
-  
+
   &-section {
-    max-width: 100%;
+    width: 100%;
   }
 }

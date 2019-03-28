@@ -7,7 +7,7 @@
 
     <ul>
       <section class="ap-o-sidebar-section">
-        {% do doc.styles.addCssFile('css/components/organisms/sidebar2.css') %}
+        {% do doc.styles.addCssFile('css/components/organisms/sidebar.css') %}
 
         <div class="ap-o-sidebar">
           {% include '/views/partials/format-toggle.j2' %}
@@ -18,15 +18,17 @@
                 {% set collections = root.collections() %}
                 {% set documents = root.list_docs(locale=doc.locale)|list %}
                 {% set items = (collections + documents)|sort(attribute='order') %}
-
                 {% for item in items %}
-
-
 
                   {# Check if the item is a) collection ... #}
                   {% if '<Collection' in item|pprint %}
                     {% set collection = item %}
-                    <section class="nav-item nav-item-level-{{ iteration }} {% if loop.previtem and item.tutorial and not loop.previtem.tutorial %} nav-item-tutorial-divider {% endif %}">
+                    {% set currentCollectionPaths = doc.collection.collection_path.split('/') %}
+                    {% set allCollectionPaths = collection.collection_path.split('/') %}
+                    {% set activeCollection = true if currentCollectionPaths[-1] == allCollectionPaths[-1] or currentCollectionPaths[-2] == allCollectionPaths[-1] else None %}
+
+                    {% set formats = collection.formats or [] %}
+                    <section class="nav-item nav-item-level-{{ iteration }} {% if activeCollection %}active {% endif %} {% for format in formats %}ap--{{ format }} {% endfor %} {% if loop.previtem and item.tutorial and not loop.previtem.tutorial %} nav-item-tutorial-divider {% endif %}">
                       <header class="nav-trigger">
                         <div class="nav-item-link nav-item-link-level-{{ iteration }}">
 
@@ -62,7 +64,9 @@
                     {# Check if the item is b) document #}
                     {% elif '<Document' in item|pprint %}
                     {% set document = item %}
-                    <section class="nav-item nav-item-level-{{ iteration }}">
+                    {% set formats = document.formats or document.collection.formats or [] %}
+                    {% set activeDocument = true if document.url == doc.url %}
+                    <section {% if activeDocument %}autoscroll {% endif %} class="nav-item nav-item-level-{{ iteration }} {% if activeDocument %}active {% endif %}{% for format in formats %}ap--{{ format }}{% endfor %}">
                       <header class="nav-trigger">
                         {% if document.collection.tutorial %}
                           {% do doc.styles.addCssFile('/css/components/molecules/tutorial-progress.css') %}
