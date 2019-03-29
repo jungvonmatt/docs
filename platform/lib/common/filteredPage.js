@@ -115,7 +115,7 @@ class FilteredPage {
     });
 
     // Find possibly empty lists and remove them from sidebars
-    this._dom('.nav-list.level-2')
+    this._dom('.nav-list-level-2')
         .each((index, navList) => {
           navList = this._dom(navList);
 
